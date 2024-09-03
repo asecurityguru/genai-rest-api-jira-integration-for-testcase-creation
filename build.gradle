@@ -1,0 +1,63 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.2'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.asecurityguru'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+	maven { url 'https://packages.atlassian.com/mvn/maven-atlassian-external/'}
+}
+
+ext {
+	set('springAiVersion', "1.0.0-SNAPSHOT")
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.ai:spring-ai-ollama-spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-logging'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	 // Jira REST Java Client dependencies
+    // https://mvnrepository.com/artifact/com.atlassian.jira/jira-rest-java-client-api
+    implementation 'com.atlassian.jira:jira-rest-java-client-api:5.2.7'
+    implementation('com.atlassian.jira:jira-rest-java-client-core:5.2.7') 
+    implementation 'io.atlassian.fugue:fugue:4.7.2'
+	implementation 'org.glassfish.jersey.core:jersey-common:3.1.7'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	//implementation 'javax.ws.rs:javax.ws.rs-api:2.1.1'
+
+
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'jakarta.ws.rs:jakarta.ws.rs-api:3.1.0'
+    }
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.ai:spring-ai-bom:${springAiVersion}"
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
