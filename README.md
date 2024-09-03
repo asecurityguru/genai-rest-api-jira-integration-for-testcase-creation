@@ -38,9 +38,14 @@ The Jira Stories Test Case Generation Application is a Spring Boot application d
 
 ## Running the Application
 
-1. **Build the project**:
+1. **Build and Start the Application**:
    ```sh
    ./gradlew clean build bootRun
+
+
+2. **Send Request to the Application**:
+   ```bash
+   GET http://localhost:8080/api/v1/jira-story?storyKey=SCRUM-2
 
 
 ## CREDITS
