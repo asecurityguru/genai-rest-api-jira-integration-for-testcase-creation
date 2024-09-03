@@ -1,27 +1,27 @@
-# Weather Inquiry Application with Ollama Model Integration - Feeding live weather data to Ollama Models
+# Jira Stories Test Case Generation Application with Ollama Model Integration
 
 ## Overview
 
-The Weather Inquiry Application is a Spring Boot application designed to provide weather information based on user queries about cities. It leverages AI to process natural language input and fetches real-time weather data from an external API.
+The Jira Stories Test Case Generation Application is a Spring Boot application designed to fetch user story details from Jira and generate test cases based on the acceptance criteria. It integrates with the Ollama AI model to process natural language inputs and automatically generate detailed test cases.
 
 ## Project Structure
 
-1. **`WeatherInquiryController`**:
-   - Handles HTTP requests for weather inquiries.
-   - Uses the AI model to process user messages and return weather information.
+- **JiraInquiryController**:
+  - Handles HTTP requests for Jira story inquiries.
+  - Utilizes the Ollama AI model to process acceptance criteria and generate relevant test cases.
 
-2. **`WeatherFunctionConfig`**:
-   - Configures and provides the `WeatherDataService` bean.
-   - Sets up the weather function used by the AI model to fetch weather data.
+- **JiraFunctionConfig**:
+  - Configures and provides the `JiraDataService` bean.
+  - Sets up the Jira function used by the AI model to fetch Jira story details and generate test cases.
 
-3. **`WeatherDataService`**:
-   - Configures and communicates with the weather API to fetch current weather data.
-   - Reads API key and URL from properties.
-   - Maps API responses into Java records.
+- **JiraDataService**:
+  - Manages communication with the Jira API to fetch user story details, including acceptance criteria.
+  - Reads Jira API credentials and URL from configuration properties.
+  - Parses the Jira API responses to extract relevant information.
 
-4. **`WeatherApiProperties`**:
-   - Stores API key and URL for the weather service.
-   - Provides configuration properties for `WeatherDataService`.
+- **JiraApiProperties**:
+  - Stores Jira API credentials (username, API token) and the base URL.
+  - Provides configuration properties for `JiraDataService`.
 
 ## Configuration
 
@@ -29,10 +29,11 @@ The Weather Inquiry Application is a Spring Boot application designed to provide
    - Ensure you have Java 17 and Gradle installed.
 
 2. **Configure the application properties**:
-   - Update `src/main/resources/application.properties` with your weather API credentials:
+   - Update `src/main/resources/application.properties` with your JIRA API credentials:
      ```properties
-     weather.apiKey=YOUR_API_KEY
-     weather.apiUrl=https://api.weatherapi.com/v1
+     jira.username=email@domain.com
+     jira.apiToken=YOUR_JIRA_API_TOKEN
+     jira.apiUrl=https://jira.attlasian.net/v1
      ```
 
 ## Running the Application
