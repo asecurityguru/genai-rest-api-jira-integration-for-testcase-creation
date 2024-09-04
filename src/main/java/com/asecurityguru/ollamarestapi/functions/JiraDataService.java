@@ -39,7 +39,6 @@ public Response apply(Request request) {
                 .block();
 
         // Log the full JSON response
-        log.debug("Full Jira Issue JSON Response: {}", jsonResponse);
         log.info("Full Jira Issue JSON Response: {}", jsonResponse);
 
         // Parse the JSON response to extract the acceptance criteria
