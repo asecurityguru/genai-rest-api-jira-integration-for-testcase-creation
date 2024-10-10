@@ -31,7 +31,7 @@ public class JiraInquiryController {
             JiraDataService.Response jiraResponse = jiraFunction.apply(new JiraDataService.Request(storyKey));
 
             // Generate test cases using the AI model based on acceptance criteria
-            String prompt = "Based on the following acceptance criteria, generate detailed test cases with Test Case ID, Steps, Test Data, Test Case Description, and Expected Result:\n\n" 
+            String prompt = "Based on the following acceptance criteria, generate detailed selenium script using Java:\n\n" 
                             + jiraResponse.acceptanceCriteria();
 
             String aiResponse = chatClient.prompt()
