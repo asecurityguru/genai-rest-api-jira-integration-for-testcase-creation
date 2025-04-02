@@ -26,7 +26,7 @@ ext {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.ai:spring-ai-ollama-spring-boot-starter'
+	implementation 'org.springframework.ai:spring-ai-ollama-spring-boot-starter:1.0.0-M6'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-logging'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
