@@ -15,35 +15,28 @@ java {
 
 repositories {
 	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/snapshot' }
+        maven { url 'https://repo.spring.io/milestone' }
 	maven { url 'https://packages.atlassian.com/mvn/maven-atlassian-external/'}
 }
 
 ext {
-	set('springAiVersion', "1.0.0-SNAPSHOT")
+	set('springAiVersion', "1.0.0-M8")
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.ai:spring-ai-ollama-spring-boot-starter:1.0.0-M6'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'org.springframework.boot:spring-boot-starter-logging'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	 // Jira REST Java Client dependencies
-    // https://mvnrepository.com/artifact/com.atlassian.jira/jira-rest-java-client-api
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.ai:spring-ai-starter-model-ollama:1.0.0-M8'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-logging'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation 'com.atlassian.jira:jira-rest-java-client-api:5.2.7'
-    implementation('com.atlassian.jira:jira-rest-java-client-core:5.2.7') 
+    implementation 'com.atlassian.jira:jira-rest-java-client-core:5.2.7'
     implementation 'io.atlassian.fugue:fugue:4.7.2'
-	implementation 'org.glassfish.jersey.core:jersey-common:3.1.7'
-	implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'org.glassfish.jersey.core:jersey-common:3.1.7'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
     implementation 'com.fasterxml.jackson.core:jackson-core:2.15.2'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
-	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-
-	//implementation 'javax.ws.rs:javax.ws.rs-api:2.1.1'
-
-
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
 }
 
 configurations.all {
