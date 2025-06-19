@@ -17,9 +17,7 @@ public class JiraInquiryController {
 
     public JiraInquiryController(ChatClient.Builder chatClientBuilder,
                                  Function<JiraDataService.Request, JiraDataService.Response> jiraFunction) {
-        this.chatClient = chatClientBuilder
-                         .defaultFunctions("jiraFunction")
-                         .build();
+        this.chatClient = chatClientBuilder.build();
         this.jiraFunction = jiraFunction;
     }
 
